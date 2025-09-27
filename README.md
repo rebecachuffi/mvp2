@@ -44,7 +44,7 @@ O valor que esse modelo poderia gerar para o negócio inclui:
 
 ━━━━━━━━━━━━━━━━━━━━
 
-##2 | Dados: carga, entendimento e qualidade
+## 2 | Dados: carga, entendimento e qualidade
 ------------
 
 ### Seleção de Dados
@@ -83,7 +83,7 @@ O [dataset](https://www.kaggle.com/datasets/sanskar457/fraud-transaction-detecti
 - **Feature Selection (SelectKBest, RFE, ExtraTreesClassifier):** Para otimização de características.
 - **GridSearchCV / RandomizedSearchCV:** Para otimização de hiperparâmetros.
 - **Scikit-learn Metrics:** Para avaliação de desempenho de modelos.
-- 
+
 ### **Instalação**
 
 Para executar este projeto localmente, basta abrir com Colab: [Notebook]([https://github.com/rebecachuffi/mvp1/blob/main/MVP1_RebecaChuffi.ipynb](https://github.com/rebecachuffi/mvp2/blob/main/V2_MVP2_RebecaChuffi.ipynb)) 
@@ -155,6 +155,7 @@ from google.colab import drive  # Para fazer upload de arquivos no Google Colab
 
 
 ## 3 | Passos para determinação do modelo
+------------
 
 Não foi necessário tanto esforço para a **limpeza de dados** para esse dataset, dito que que já estava prativamente pronto para uso (porém a real condição do dataset foi verificada para não termos possíveis erros no modelo). Métodos de feature selection aprendidos foram aplicados e foi considerado o desbalanceamento das classes em todos os processos. Além disso, os dados foram padronizados para que o modelo não desse maior força aos dados que estavam numa escala maior. 
 
@@ -185,6 +186,7 @@ Então, vamos priorizar o Recall e o F1-Score para esse problema, ou seja, vamos
 
 
 ## 4 | Modelagem e Inferência
+------------
 
 Testamos alguns modelos fora de uma Pipeline e nessa etapa notei que como o tempo de cada execução estava sendo de mais de uma hora, eu precisaria fazer uma escolha mais certeira, dados que não conseguiria testar todos os modelos e todos os estados (original, padronizado e normalizado) num tempo hábil. Tivemos que limitar o número de features e trees para conseguir um resultado satisfatório e em tempo funcional. Dadas as devidas limitações, montamos uma pipeline considerando: 
 
@@ -203,6 +205,7 @@ E avaliamos cada modelo considerando F1-score e Recall. Além disso, utilizadmos
 *   `RF-padr`: esse modelo é mais eficiente e escalável, considerando o volume de dados. Além disso, ele lida bem que as 4 features que gostaríamos de utilizar. Ele captura interações não lineares e lida bem com dados com ruído ou desbalanceamento. Portanto usaremos esse ensemble (até para evitar overfitting, já que a combinação de vários modelos ajuda a reduzir o risco de overfitting).
 
 ## 5 | Modelagem e Inferência
+------------
 
 Como justificado anteriormente, optamos pelo ensemble **Random Forest**, que é uma técnica de Bagging (que combina vários modelos de aprendizagem, em geral árvores de decisão).  
 
@@ -234,6 +237,7 @@ Pela avaliação acima, das 30 combinações testadas considerando a métrica **
 *   rf__bootstrap': True
 
 ## 6 | Treinamento do Modelo
+------------
 
 O modelo foi treinado considerando o conjunto de treino e foi "testado" no conjunto de validação, obtendo os resultados:
 
@@ -253,6 +257,7 @@ Através da matriz de confusão, notamos que:
 *Falsos negativos* são relativamente baixos, mas ainda assim o modelo poderia melhorar um pouco nesse aspecto para capturar mais fraudes. Dito isso, num ambiente com uma capacidade computacional maior poderíamos avaliar mais hiperparâmetros e modelos específicos para melhorar o desempenho nesse quesito.
 
 ## 7 | Preparação do modelo para produção
+------------
 
 Por meio do conjunto de teste, verificamos que alcançamos f1-score de 98,23% e recall de 96,53%, em dados não vistos. Valores semelhantes à essas métricas no conjunto de teste são esperados quando esse modelo estiver executando em produção e fazendo predições para novos dados.
 
@@ -261,6 +266,7 @@ Vamos agora preparar o modelo para utilização em produção. Para isso, vamos 
 Nesse caso, vamos usar o **modelo tradicional de treinamento** (sem validação cruzada) pois em produção o modelo treinado através de validação cruzada não pode ser usado diretamente em produção, pois ele é validado com subconjuntos dos dados. Além do alto custo computacional e de tempo (para um conjunto de dados grande de dados).
 
 ## 8 | Conclusão, Desafios e Próximos passos
+------------
 
 Além das hipóteses propostas inicialmente, tivemos vários insights ao longo do caminho. A parte de limpeza e tratamento de dados me fez chorar lágrimas de sangue, mas foi muito bom, proque aprendi e entendi coisas que até então eram bem teóricas. Mas vamos às hipóteses:
 
