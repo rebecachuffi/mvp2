@@ -2,13 +2,13 @@
 Machine Leaning e Analytics PUC - Rio (2025)
 
 
-Nome: Rebeca Chuffi Saccochi
+**Nome:** Rebeca Chuffi Saccochi
 
 
-Duração: 60 horas 
+**Duração:** 30 horas 
 
 
-[Notebook]([https://github.com/rebecachuffi/mvp1/blob/main/MVP1_RebecaChuffi.ipynb](https://github.com/rebecachuffi/mvp2/blob/main/V2_MVP2_RebecaChuffi.ipynb)) | [Repositório]([https://github.com/rebecachuffi/mvp1/tree/main](https://github.com/rebecachuffi/mvp2/tree/main))
+[Notebook](https://github.com/rebecachuffi/mvp2/blob/main/V2_MVP2_RebecaChuffi.ipynb)) | [Repositório](https://github.com/rebecachuffi/mvp2/tree/main))
 
 ## 1 | Escopo, objetivo e definição do problema
 ------------
